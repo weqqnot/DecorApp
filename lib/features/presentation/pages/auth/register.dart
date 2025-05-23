@@ -1,6 +1,7 @@
 import 'package:decor_home_app/core/theme/colors.dart';
 import 'package:decor_home_app/core/theme/fonts.dart';
 import 'package:decor_home_app/features/presentation/widgets/custom_button.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,6 +19,8 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<RegisterPage> {
+  late TapGestureRecognizer _registerTapRecognizer;
+
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
@@ -52,6 +55,15 @@ class _SignUpPageState extends State<RegisterPage> {
         );
   }
 
+
+  @override
+  void initState() {
+    super.initState();
+    _registerTapRecognizer = TapGestureRecognizer()
+      ..onTap = () {
+        Navigator.pushNamed(context, '/login');
+      };
+  }
 
 
 
@@ -342,8 +354,9 @@ class _SignUpPageState extends State<RegisterPage> {
                         fontSize: 14,
                       )),
                   TextSpan(
-                    text: '  Đăng ký',
+                    text: '  Đăng nhập',
                     style: FontsApp.subText(color: ColorsApp.terra),
+                    recognizer: _registerTapRecognizer,
                   )
                 ]))
               ],

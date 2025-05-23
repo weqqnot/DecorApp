@@ -56,7 +56,7 @@ class ProductDetailPage extends StatelessWidget {
                       onPressed: (){
                         favorite(context, product);
                         ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('${product.title} marked as favorite')),);
+                            SnackBar(content: Text('${product.title} đã thêm vào danh sách yêu thích')),);
                       },
                       icon: Image.asset('assets/vectors/favorite.png'),
                     ),

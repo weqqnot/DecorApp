@@ -1,8 +1,9 @@
 import 'package:decor_home_app/core/theme/colors.dart';
 import 'package:decor_home_app/core/theme/fonts.dart';
+import 'package:decor_home_app/features/presentation/pages/auth/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:flutter/gestures.dart';
 import '../../../data/repositories/auth_service.dart';
 
 
@@ -14,6 +15,8 @@ class LogInPage extends StatefulWidget {
 }
 
 class _LogInPageState extends State<LogInPage> {
+  late TapGestureRecognizer _registerTapRecognizer;
+
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
@@ -47,6 +50,15 @@ class _LogInPageState extends State<LogInPage> {
         SnackBar(content: Text('Sai email hoặc mật khẩu')),
       );
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _registerTapRecognizer = TapGestureRecognizer()
+      ..onTap = () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterPage())); 
+      };
   }
 
 
@@ -180,12 +192,11 @@ class _LogInPageState extends State<LogInPage> {
                   TextSpan(
                     text: '  Đăng ký',
                     style: FontsApp.subText(color: ColorsApp.terra),
+                    recognizer: _registerTapRecognizer,
                   )
                 ]))
               ],
             )
-          
-            
           ],
         ),
       ),

@@ -64,12 +64,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeApp.lightTheme, 
       darkTheme: ThemeApp.darkTheme,
       initialRoute: '/',
-      // routes: {
-      //   '/': (context) =>  SplashPage(),  // Splash page khởi đầu
-      //   '/login': (context) =>  LogInPage(),  // Login page
-      //   '/home': (context) =>  BottomTabbar(),  // Home page
-      // },
-      home: BottomTabbar(),
+      routes: {
+        '/': (context) =>  SplashPage(),  // Splash page khởi đầu
+        '/login': (context) =>  LogInPage(),  // Login page
+        '/home': (context) =>  BottomTabbar(),  // Home page
+      },
+      // home: BottomTabbar(),
     );
   }
 }
